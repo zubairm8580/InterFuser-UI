@@ -1,0 +1,39 @@
+# InterFuser UI Requirements
+# Python 3.12 + CARLA 0.9.16 + RTX 5090 (CUDA 12.8)
+#
+# Setup:
+#   conda create -n interfuser python=3.12 -y
+#   conda activate interfuser
+#   pip install CARLA_0.9.16/PythonAPI/carla/dist/carla-0.9.16-cp312-cp312-win_amd64.whl
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+#   pip install -r requirements.txt
+
+# ============================================================================
+# Deep Learning Framework (install separately - see above)
+# ============================================================================
+# torch>=2.10.0        (via --index-url https://download.pytorch.org/whl/cu128)
+# torchvision>=0.25.0  (via --index-url https://download.pytorch.org/whl/cu128)
+
+# ============================================================================
+# CARLA Python API (install separately - see above)
+# ============================================================================
+# carla==0.9.16        (via .whl file)
+
+# ============================================================================
+# Core Dependencies
+# ============================================================================
+numpy>=1.24.0,<2.0.0    # Must be <2.0 for imgaug compatibility
+opencv-python>=4.8.0     # Computer vision operations
+Pillow>=10.0.0           # Image processing (PIL)
+pygame>=2.5.0            # Real-time UI rendering
+
+# ============================================================================
+# InterFuser Model Dependencies
+# ============================================================================
+scikit-image>=0.21.0     # Image processing (required by det_utils.py)
+scipy>=1.10.0            # Scientific computing
+imgaug>=0.4.0            # Image augmentation (required by augmenter.py)
+albumentations>=1.3.0    # Image augmentation
+tqdm>=4.65.0             # Progress bars
+pyyaml>=6.0              # YAML config files
+matplotlib>=3.7.0        # Plotting

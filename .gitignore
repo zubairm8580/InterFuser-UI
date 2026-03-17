@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+CARLA_0.9.16/
+checkpoints/
+*.csv
+*.mp4
