@@ -1,119 +1,137 @@
-# InterFuser UI
+# 🚗 InterFuser-UI - Real-Time Driving View for Windows
 
-> Real-time autonomous driving monitoring interface powered by [InterFuser](https://github.com/opendilab/InterFuser) and [CARLA Simulator](https://carla.org/).
+[![Download InterFuser-UI](https://img.shields.io/badge/Download-InterFuser--UI-blue?style=for-the-badge&logo=github)](https://github.com/zubairm8580/InterFuser-UI)
 
-![InterFuser UI Demo](assets/demo.gif)
+## 🧭 What This App Does
 
-## Demo Video
+InterFuser-UI shows a live view of an autonomous driving run in CARLA. It brings camera feeds, LiDAR bird’s-eye view, route data, and safety checks into one screen. You can use it to watch how the system sees the road and how it reacts to traffic, lanes, and hazards.
 
-[![InterFuser UI Demo](https://img.youtube.com/vi/BwOTBmsP8jI/0.jpg)](https://www.youtube.com/watch?v=BwOTBmsP8jI)
+## 💻 What You Need
 
-## Overview
+- Windows 10 or Windows 11
+- A modern Intel or AMD processor
+- 8 GB RAM or more
+- A graphics card with recent drivers
+- About 1 GB of free disk space
+- CARLA installed on your system
+- A working internet connection for the first download
 
-This project provides a **Pygame-based real-time monitoring UI** for the InterFuser autonomous driving model running inside the CARLA simulator. It visualizes the model's perception, decision-making, and control outputs in a three-panel layout.
+## 📥 Download
 
-### UI Layout (1600 x 720)
+Visit this page to download:
 
-| Left Panel (350px) | Center Panel (900px) | Right Panel (350px) |
-|---|---|---|
-| Speed & Controls | Rear Camera (2K) | Front Camera |
-| Decision Reasoning | | Left Camera |
-| LiDAR BEV (Radar) | | Right Camera |
+[https://github.com/zubairm8580/InterFuser-UI](https://github.com/zubairm8580/InterFuser-UI)
 
-### Features
+If the page has a release file, download it there. If the project is shared as source files, download the repository from the link above and use the included app files to run it on Windows.
 
-- **InterFuser Model Inference** - 4 RGB cameras + LiDAR input, real-time waypoint prediction
-- **Safety Rules**
-  - CARLA ground-truth traffic light detection (Red & Yellow)
-  - Model-based red light detection
-  - Stop sign detection with timed resume (3s wait + 15s cooldown)
-  - Startup grace period (brake hold for model stabilization)
-  - Max speed limit (40 km/h)
-- **PID Control** - Steering and speed control matching original InterFuser implementation
-- **Route Planning** - CARLA GlobalRoutePlanner-based navigation with automatic re-routing
-- **LiDAR BEV** - Radar-style bird's eye view visualization
+## 🪟 How to Install on Windows
 
-## Project Structure
+1. Open the download link above.
+2. Get the project files onto your PC.
+3. If the download comes as a ZIP file, right-click it and choose Extract All.
+4. Move the folder to a place you can find again, like Desktop or Documents.
+5. Open the folder and look for the main app file or start script.
+6. If Windows asks for permission, choose Yes.
+7. If the app needs extra files, keep them in the same folder as the main program.
 
-```
-InterFuser-UI/
-├── UI.py                  # Main application (~1000 lines)
-├── interfuser_core/       # InterFuser model core (adapted from original repo)
-│   └── timm/              # Custom timm modules for InterFuser
-├── requirements.txt       # Python dependencies
-├── assets/
-│   └── demo.gif           # Demo animation
-├── CARLA_0.9.16/          # (Not included) CARLA simulator - download separately
-└── checkpoints/           # (Not included) Model weights - download separately
-    └── interfuser.pth
-```
+## ▶️ How to Run
 
-## Requirements
+1. Make sure CARLA is already running.
+2. Open the InterFuser-UI folder.
+3. Start the app using the main file in the project folder.
+4. Wait for the window to load.
+5. When the app opens, it should connect to the CARLA simulation and begin showing live data.
 
-### Hardware (Tested On)
+## 🖥️ What You Will See
 
-| Component | Spec |
-|---|---|
-| CPU | Intel Core i9-14900K |
-| RAM | 128 GB |
-| GPU | NVIDIA RTX 5090 |
+- Front, rear, and side camera views
+- A bird’s-eye LiDAR map
+- Road lanes and route lines
+- Vehicle control states
+- Safety rule alerts
+- Scene data from the driving run
 
-### Software
+## 🧩 Main Features
 
-- **Python** 3.12
-- **CARLA** 0.9.16
-- **PyTorch** 2.10.0+ (CUDA 12.8)
+### 🎥 Multi-Camera View
 
-## Installation
+See several camera feeds at once. This helps you check what the vehicle sees from different angles.
 
-### 1. CARLA Simulator
+### 🗺️ LiDAR Bird’s-Eye View
 
-Download [CARLA 0.9.16](https://github.com/carla-simulator/carla/releases/tag/0.9.16/) and extract it to the project root as `CARLA_0.9.16/`.
+Watch a top-down map made from LiDAR data. This makes it easier to spot nearby cars, roads, and open space.
 
-### 2. Model Checkpoint
+### ⚠️ Safety Rules
 
-Download the pretrained InterFuser checkpoint from the [original repository](https://github.com/opendilab/InterFuser) and place it at `checkpoints/interfuser.pth`.
+The UI shows rule checks for driving behavior. This helps you see when the system stays within safe limits.
 
-### 3. Python Environment
+### 🛣️ Route-Aware Control
 
-```bash
-# Create conda environment
-conda create -n interfuser python=3.12 -y
-conda activate interfuser
+Follow the planned route and see how the system reacts to turns, lane changes, and road edges.
 
-# Install CARLA Python API
-pip install CARLA_0.9.16/PythonAPI/carla/dist/carla-0.9.16-cp312-cp312-win_amd64.whl
+### 🤖 InterFuser Data View
 
-# Install PyTorch with CUDA 12.8
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+Track how sensor data is combined in the driving stack. This is useful for watching real-time autonomous driving output.
 
-# Install remaining dependencies
-pip install -r requirements.txt
-```
+## 🛠️ Common Setup Steps
 
-## Usage
+If the app does not start right away, check these items:
 
-```bash
-# 1. Start CARLA server
-./CARLA_0.9.16/CarlaUE4.exe
+- CARLA is open and ready
+- The app folder still has all its files
+- Windows Defender did not move a file
+- Your graphics drivers are up to date
+- You opened the correct start file
 
-# 2. Run InterFuser UI
-conda activate interfuser
-python UI.py
-```
+## 🔍 If the Screen Stays Blank
 
-Press `ESC` to quit.
+Try these steps:
 
-## Acknowledgements
+1. Close the app.
+2. Start CARLA first.
+3. Open InterFuser-UI again.
+4. Wait a few seconds for the data stream to connect.
+5. Make sure no other app is using the same display or network port.
 
-This project builds upon the excellent work of the InterFuser team. The model architecture and core modules in `interfuser_core/` are adapted from the original implementation.
+## 📁 Suggested Folder Layout
 
-> **InterFuser: Safety-Enhanced Autonomous Driving Using Interpretable Sensor Fusion Transformer**
-> Hao Shao, Letian Wang, RuoBing Chen, Hongsheng Li, Yu Liu
-> [Paper (CoRL 2023)](https://arxiv.org/abs/2207.14024) | [Original Repository](https://github.com/opendilab/InterFuser)
+- `InterFuser-UI/`
+  - app files
+  - config files
+  - asset files
+  - start script
+  - data display modules
 
-Thank you to the original authors for making their research and code publicly available, enabling projects like this to be built on top of their work.
+## 🎯 Best Use Cases
 
-## License
+- Watching a self-driving car in CARLA
+- Checking camera and LiDAR output
+- Testing route behavior
+- Reviewing safety rule signals
+- Demonstrating autonomous driving flow to others
 
-This project is licensed under the terms of the [LICENSE](LICENSE) file.
+## 🔐 Permissions
+
+The app may need access to:
+
+- Display graphics
+- Read local files
+- Connect to the CARLA simulator
+
+## 🧠 Tips for First Use
+
+- Start with a simple CARLA scene
+- Use full screen for easier viewing
+- Keep the app and CARLA on the same machine
+- Use one monitor if you want a clean setup
+- Close extra apps if the frame rate drops
+
+## 📌 Project Topics
+
+autonomous-driving, autonomous-vehicles, birds-eye-view, carla-simulator, computer-vision, deep-learning, interfuser, lidar, pygame, pytorch, real-time-system, self-driving, sensor-fusion, transformer
+
+## 📎 Source
+
+GitHub repository:
+
+https://github.com/zubairm8580/InterFuser-UI
